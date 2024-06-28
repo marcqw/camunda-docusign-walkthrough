@@ -120,3 +120,57 @@
          ```
 
       
+
+## Set up your environment
+
+### Build the connector
+
+1. Clone https://github.com/Infosys/camunda-connectors
+
+2. Open or navigate to the folder ./connector-docusign
+
+3. Delete the folder ./src/test
+
+4. Execute 
+
+   ```bash
+   mvn clean package
+   mvn install
+   ```
+
+### Build your client
+
+1. Use https://github.com/marcqw/camunda-spring-demo-boilerplate
+
+2. On the POM.XML add your connector dependency
+
+   ```diff
+   +<dependency>
+   +		<groupId>com.infosys.camundaconnectors.docusign</groupId>
+   +		<artifactId>connector-docusign</artifactId>
+   +   <version>0.1.0-SNAPSHOT</version>
+   +</dependency>
+   ```
+
+3. Create your Cluster Client APi and update src/main/resources/application.properties
+
+4. Execute
+
+   ```bash
+   mvn clean package
+   ```
+
+5. Run your client
+
+   ```bash
+   mvn spring-boot:run
+   ```
+
+### Configure your Camunda Platform
+
+1. Add your Docusign Account ID & Secret Key to the connector secret in Console
+2. In your Modeler project, upload the template element from connector-docusign/element-templates/docusign-connector.json
+
+
+
+Congrats! Your environment is up and running 👊
